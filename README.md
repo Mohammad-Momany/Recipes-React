@@ -1,4 +1,4 @@
-# Resipes 
+# Recipes 
 >A project that allows users to easily search for multiple recipes to prepare.
 
 ## Development
@@ -11,7 +11,7 @@ Mohammad Momani
 
  ## Technologies used
 
-- Html, Css, React Hooks, [Edamam API](https://www.edamam.com/)
+- HTML, CSS, React Hooks, [Edamam API](https://www.edamam.com/)
 
  ## Start with the app
 
