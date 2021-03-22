@@ -1,45 +1,46 @@
 import React, { useEffect, useState } from "react";
 import Recipes from "./components/Recipes";
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const APP_ID = "2e53e717";
   const APP_KEY = "caaf15de806e15ac5b5d576d8d3c045f";
-
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("Ice Cream");
+  const URL = `https://api.edamam.com/search?q=${query}&from=0&to=12&app_id=${APP_ID}&app_key=${APP_KEY}`;
   useEffect(() => {
     getRecipes();
   }, [query]);
 
   const getRecipes = async () => {
-    const res = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-    );
-    const { hits } = await res.json();
+    const { hits } = await (await fetch(URL)).json();
     setRecipes(hits);
+    if (hits.length===0) {
+      
+      setQuery("Ice Cream");
+    }
   };
-
-  const updatrSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
   const getSearch = (e) => {
     e.preventDefault();
-    setQuery(search);
-    setSearch("");
+    if (search.length > 1) {
+      
+      setQuery(search);
+      setSearch("");
+    }
   };
+  
+
   return (
     <div className="App">
       <form onSubmit={getSearch} className="search-form">
         <input
-          className="Search-bar"
+          className="search-bar"
           type="text"
           value={search}
-          onChange={updatrSearch}
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="Search-button" type="submit">
+        <button className="search-btn" type="submit">
           search
         </button>
       </form>

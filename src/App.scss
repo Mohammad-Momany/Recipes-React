@@ -1,0 +1,53 @@
+* ::selection {
+    background-color: #a6c0fe;
+    color: #f68084;
+    padding: 5%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.App {
+    min-height: 100vh;
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+}
+
+.search {
+    &-form {
+        min-height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-bar {
+        width: 30%;
+        border: 2px solid lightcoral;
+        padding: 10px;
+        background-color: rgba(255, 0, 0, 0);
+        margin: 1% 0;
+        &:focus {
+            background: rgba(240, 128, 128, 0.363);
+            outline: none;
+        }
+    }
+    &-btn {
+        background: lightcoral;
+        padding: 10px 20px;
+        color: white;
+        border: 2px solid transparent;
+        border-radius: 0 51px 5px 0;
+        outline: none;
+        margin: 1% 0;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.recipe {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
