@@ -21,14 +21,3 @@ npm i
 ```bash 
 npm start
 ```
->Githup and Herouku 
-- [Herouku](https://thawing-peak-56158.herokuapp.com/)
-- [Githup](https://github.com/Mohammad-W-Momani/Recipes-React)
-
-
-
-
-
-
-
-> 
