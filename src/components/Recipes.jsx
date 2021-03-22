@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { item, recipes, images } from "./recipes.module.scss";
 
 const Recipes = ({ label, calories, image, ingredients }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
-    <div className={recipes}>
-      <h2> {label} </h2>
-
+    <div className={recipes} data-aos="fade-up">
+      <h2>{label}</h2>
       <ul>
         {ingredients.map(({ text }) => (
           <li className={item} key={Math.random()}>
@@ -15,7 +19,12 @@ const Recipes = ({ label, calories, image, ingredients }) => {
       </ul>
       <div>
         <p className={calories}> Calories: {calories.toFixed(3)} </p>
-        <img className={images} src={image} alt="Food image" />
+        <img
+          className={images}
+          src={image}
+          data-aos="fade-down"
+          alt="Food image"
+        />
       </div>
     </div>
   );
